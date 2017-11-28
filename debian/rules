@@ -23,8 +23,10 @@ include /usr/share/dpkg/default.mk
 # debmake generated override targets
 # This is example for Cmake (See http://bugs.debian.org/641051 )
 override_dh_auto_configure:
+	sh debian/linux-headers.sh
 	dh_auto_configure -- \
 	-DCMAKE_TOOLCHAIN_FILE=/etc/dpkg-cross/cmake/CMakeCross.txt \
 	-DCMAKE_BUILD_TYPE=Release \
+	"-DKERNEL_HEADERS=`pwd`/debian/linux-headers" \
 	-DRKPLATFORM=ON \
 	-DHAVE_DRM=ON

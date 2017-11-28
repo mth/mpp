@@ -7,9 +7,9 @@ INCLUDE(GNUInstallDirs)
 pkg_search_module(PTHREAD pthread)
 
 ADD_DEFINITIONS(-Wmissing-declarations -Wall -Wextra -Wshadow -ffast-math)
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -O0 -g3")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -O0 -g3 -I${KERNEL_HEADERS}")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -O0 -g3")
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -Os")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -Os -I${KERNEL_HEADERS}")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -Os")
 
 # putting those into config.h would be better
